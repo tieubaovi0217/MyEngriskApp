@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 
+import com.example.myengriskappv2.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,14 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -48,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
+        FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
+        QuestionFragment fragment1 = QuestionFragment.newInstance("cookie", "cake", "candy", "snack", "biscuit", "biscuit");
+        tf.replace(R.id.frameQuestion, fragment1);
+        tf.commit();
 
     }
 
@@ -74,4 +70,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void replaceFragment()
+    {
+        FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
+        QuestionFragment newFragment = QuestionFragment.newInstance("ssosso", "lauren", "sohee", "sehee", "gabi", "sohee");
+        tf.replace(R.id.frameQuestion, newFragment);
+        tf.commit();
+    }
 }

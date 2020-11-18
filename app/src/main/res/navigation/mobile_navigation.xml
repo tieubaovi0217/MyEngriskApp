@@ -9,7 +9,7 @@
         android:id="@+id/nav_game"
         android:name="com.example.myengriskappv2.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game"/>
 
     <fragment
         android:id="@+id/nav_difficulty"
