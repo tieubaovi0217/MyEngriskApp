@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="buttonStyle">
+        <item name="android:background">@drawable/bgbtn</item>
+<!--        <item name="" android:drawable="@drawable/button__hover" android:state_focused="false" android:state_pressed="true"/>-->
+    </style>
+
+
+</resources>

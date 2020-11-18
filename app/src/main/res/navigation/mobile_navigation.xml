@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_game">
+
+    <fragment
+        android:id="@+id/nav_game"
+        android:name="com.example.myengriskappv2.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_game" />
+
+    <fragment
+        android:id="@+id/nav_difficulty"
+        android:name="com.example.myengriskappv2.ui.gallery.GalleryFragment"
+        android:label="Difficulty"
+        tools:layout="@layout/fragment_difficulty" />
+
+    <fragment
+        android:id="@+id/nav_dictionary"
+        android:name="com.example.myengriskappv2.ui.slideshow.SlideshowFragment"
+        android:label="Dictionary"
+        tools:layout="@layout/fragment_dictionary" />
+</navigation>
