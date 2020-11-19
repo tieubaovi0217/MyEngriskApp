@@ -1,26 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.gallery.GalleryFragment"
     android:background="@drawable/backgroundapp"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    >
-
-    <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:background="@drawable/buttonconner"
+        android:backgroundTint="#FFFFFF"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="15dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_height="100dp"
+                android:backgroundTint="#0be881"
+                style="@style/buttonDifficulty"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_height="150dp"
+                style="@style/buttonDifficulty"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_height="200dp"
+                style="@style/buttonDifficulty"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_height="250dp"
+                style="@style/buttonDifficulty"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_height="300dp"
+                style="@style/buttonDifficulty"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                style="@style/textDifficulty"
+                android:textColor="#0be881"
+                android:text="Easiest"/>
+            <TextView
+                style="@style/textDifficulty"
+                android:text=" Easier"/>
+            <TextView
+                style="@style/textDifficulty"
+
+                android:text="Normal"/>
+            <TextView
+                style="@style/textDifficulty"
+                android:text="   Hard"/>
+            <TextView
+                style="@style/textDifficulty"
+                android:text="Hardest"/>
+
+        </LinearLayout>
+
+        <Button
+            android:background="@drawable/buttonconner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set level and back to game"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

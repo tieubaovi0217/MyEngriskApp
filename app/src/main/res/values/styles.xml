@@ -3,7 +3,23 @@
 
     <style name="buttonStyle">
         <item name="android:background">@drawable/bgbtn</item>
-<!--        <item name="" android:drawable="@drawable/button__hover" android:state_focused="false" android:state_pressed="true"/>-->
+    </style>
+
+    <style name="textDifficulty">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginRight">7dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="buttonDifficulty">
+        <item name="android:background">@drawable/buttonconner</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_marginRight">15dp</item>
     </style>
 
 
