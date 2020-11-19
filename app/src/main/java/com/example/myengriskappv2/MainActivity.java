@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    public QuestionFragment getQuestionFragment() {
+        return questionFragment;
+    }
+
+    private QuestionFragment questionFragment = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +48,19 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
-        QuestionFragment fragment1 = QuestionFragment.newInstance("cookie", "cake", "candy", "snack", "biscuit", "biscuit");
-        tf.replace(R.id.frameQuestion, fragment1);
-        tf.commit();
-
+        if (savedInstanceState != null)
+        {
+            questionFragment = (QuestionFragment)getSupportFragmentManager().findFragmentById(R.id.frameQuestion);
+        }
+        else if (questionFragment == null)
+        {
+            questionFragment = QuestionFragment.newInstance("cookie", "cake", "candy", "snack", "biscuit", "biscuit");
+        }
+        if (!questionFragment.isInLayout()) {
+            FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
+            tf.replace(R.id.frameQuestion, questionFragment);
+            tf.commit();
+        }
     }
 
     @Override
@@ -69,12 +83,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        Log.d("debug", "main activity pause");
+        super.onPause();
+    }
 
     public void replaceFragment()
     {
         FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
-        QuestionFragment newFragment = QuestionFragment.newInstance("ssosso", "lauren", "sohee", "sehee", "gabi", "sohee");
-        tf.replace(R.id.frameQuestion, newFragment);
+        questionFragment = QuestionFragment.newInstance("ssosso", "lauren", "sohee", "sehee", "gabi", "sohee");
+        tf.replace(R.id.frameQuestion, questionFragment);
         tf.commit();
     }
 }

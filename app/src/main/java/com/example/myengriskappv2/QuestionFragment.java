@@ -1,5 +1,6 @@
 package com.example.myengriskappv2;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -100,7 +101,17 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false);
+        View view = inflater.inflate(R.layout.fragment_question, container, false);
+        if (savedInstanceState != null)
+        {
+            mQues = savedInstanceState.getString(ARG_QUES);
+            mAns1 = savedInstanceState.getString(ARG_ANS1);
+            mAns2 = savedInstanceState.getString(ARG_ANS2);
+            mAns3 = savedInstanceState.getString(ARG_ANS3);
+            mAns4 = savedInstanceState.getString(ARG_ANS4);
+            mSol = savedInstanceState.getString(ARG_SOL);
+        }
+        return view;
     }
 
     @Override
@@ -110,6 +121,17 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
         else
             Toast.makeText(getActivity(), "Wrong", Toast.LENGTH_SHORT).show();
         nextQuestion();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putString(ARG_ANS1, mAns1);
+        outState.putString(ARG_ANS2, mAns2);
+        outState.putString(ARG_ANS3, mAns3);
+        outState.putString(ARG_ANS4, mAns4);
+        outState.putString(ARG_QUES, mQues);
+        outState.putString(ARG_SOL, mSol);
+        super.onSaveInstanceState(outState);
     }
 
     private void nextQuestion() {
